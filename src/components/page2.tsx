@@ -2,30 +2,45 @@
 
 import { ExpandableCardDemo } from "./Wlugintro";
 import { useEffect, useState } from "react";
-import {SignupFormDemo} from "./RegisterForm";
+import { SignupFormDemo } from "./RegisterForm";
 
 const Page2: React.FC = () => {
   const [scrollProgress, setScrollProgress] = useState<number>(0);
-  const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth < 768);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  // Initialize state safely
+  useEffect(() => {
+    setIsMounted(true);
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   // Update isMobile on resize
   useEffect(() => {
+    if (!isMounted) return;
+
     const updateMobile = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", updateMobile);
     return () => window.removeEventListener("resize", updateMobile);
-  }, []);
+  }, [isMounted]);
 
+  // Handle scroll events
   useEffect(() => {
+    if (!isMounted) return;
+
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      const page1Height = window.innerHeight; // Height of Page 1
-      const progress = Math.min(Math.max(scrollY / page1Height, 0), 1); // Keep between 0 and 1
+      const page1Height = window.innerHeight;
+      const progress = Math.min(Math.max(scrollY / page1Height, 0), 1);
       setScrollProgress(progress);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isMounted]);
+
+  // Prevent server-client mismatch
+  if (!isMounted) return null;
 
   return (
     <div
@@ -45,10 +60,6 @@ const Page2: React.FC = () => {
         <h2 className="text-white font-bold text-2xl md:text-[6vh]">
           Member Board Drive 2
         </h2>
-        {/* <p className="text-white text-[1.2vh] text-xl md:text-[2.5vh] text-center">
-          Prepare to join a vibrant community of Linux enthusiasts and immerse
-          yourself in the dynamic world of Open Source.
-        </p> */}
       </div>
 
       <div className="box flex flex-col md:flex-row gap-4 w-full md:w-[80vw] h-auto rounded-xl z-10">
@@ -56,8 +67,7 @@ const Page2: React.FC = () => {
         <div className="flex-1 flex justify-center items-center w-full md:w-[50%] bg-[#171413] rounded-xl mb-5 sm:mb-0 backdrop-blur-sm">
           <div className="w-full h-full">
             <div className=" bg-">
-
-          <ExpandableCardDemo/>
+              <ExpandableCardDemo/>
             </div>
           </div>
         </div>

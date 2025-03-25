@@ -53,10 +53,10 @@ export function HeroSection() {
                 </motion.div>
                 {/* Hero Section Content Logic */}
                 <div className={"container relative mt-16"}>
-                    <h1 className={"text-5xl md:text-[100px] md:leading-none font-semibold bg-white tracking-tighter bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,0.5))] bg-clip-text text-transparent text-center"}>Walchand Linux Users&apos; Group</h1>
+                    <h1 className={"text-5xl md:text-[100px] md:leading-none font-semibold bg-white tracking-tighter bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,0.5))] bg-clip-text text-transparent text-center"}>Walchand Linux Users' Group</h1>
                     <p className={"text-lg md:text-xl max-w-xl mx-auto text-white/70 mt-10 md:mt-5 text-center"}>Prepare to join a vibrant community of Linux enthusiasts and immerse yourself in the dynamic world of Open Source.</p>
                     <div className={"flex justify-center mt-10 md:mt-5"}>
-                    <button className={"relative py-2 px-3 rounded-lg font-medium text-sm bg-gradient-to-b from-[#190d2e] to-[#4a208a] shadow-[0px_0px_12px_#8c45ff]"}>
+                        <button className={"relative py-2 px-3 rounded-lg font-medium text-sm bg-gradient-to-b from-[#190d2e] to-[#4a208a] shadow-[0px_0px_12px_#8c45ff]"}>
                         <div className={"absolute inset-0 rounded-lg"}>
                             <div className={"absolute inset-0 border rounded-lg border-white/20 [mask-image:linear-gradient(to_bottom,black,transparent)]"}/>
                             <div className={"absolute inset-0 border rounded-lg border-white/40 [mask-image:linear-gradient(to_top,black,transparent)]"}/>
