@@ -1,3 +1,4 @@
+"use client"
 import {HeroSection} from "@/components/hero-section";
 import Page2 from "@/components/page2";
 
