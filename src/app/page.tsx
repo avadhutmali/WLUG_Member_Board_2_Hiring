@@ -33,7 +33,10 @@ export default function Home() {
         {isClient && (
           <>
             <HeroSection />
+            <div id="Register">
+
             <Page2 />
+            </div>
           </>
         )}
       </Suspense>

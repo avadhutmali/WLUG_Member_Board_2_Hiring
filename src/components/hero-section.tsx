@@ -20,7 +20,7 @@ export function HeroSection() {
             <motion.section
                 animate={{backgroundPositionX: BackgroundStars.width,}}
                 transition={{duration: 120, repeat: Infinity, ease: 'linear'}}
-                className={"h-[492px] md:h-[800px] flex items-center overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"}
+                className={"h-[900px] md:h-[800px] md:mt-0 flex items-center overflow-hidden relative [mask-image:linear-gradient(to_bottom,transparent,black_10%,black_90%,transparent)]"}
                 style={{backgroundImage: `url(${BackgroundStars.src})`, backgroundPositionY}} ref={sectionRef}>
                 <div className={"absolute inset-0 bg-[radial-gradient(75%_75%_at_center_center,rgb(140,69,255,0.5)_15%,rgb(14,0,36,0.5)_78%,transparent)]"} />
                 {/* Planet Logic */}
@@ -55,14 +55,17 @@ export function HeroSection() {
                     <h1 className={"text-5xl md:text-[100px] md:leading-none font-semibold bg-white tracking-tighter bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,0.5))] bg-clip-text text-transparent text-center"}>Walchand Linux Users&apos; Group</h1>
                     <p className={"text-lg md:text-xl max-w-xl mx-auto text-white/70 mt-10 md:mt-5 text-center"}>Prepare to join a vibrant community of Linux enthusiasts and immerse yourself in the dynamic World of Open Source.</p>
                     <div className={"flex justify-center mt-10 md:mt-5"}>
+                    <a href="#Register">
                         <button className={"relative py-2 px-3 rounded-lg font-medium text-sm bg-gradient-to-b from-[#190d2e] to-[#4a208a] shadow-[0px_0px_12px_#8c45ff]"}>
-                        <div className={"absolute inset-0 rounded-lg"}>
-                            <div className={"absolute inset-0 border rounded-lg border-white/20 [mask-image:linear-gradient(to_bottom,black,transparent)]"}/>
-                            <div className={"absolute inset-0 border rounded-lg border-white/40 [mask-image:linear-gradient(to_top,black,transparent)]"}/>
-                            <div className={"absolute inset-0 rounded-lg shadow-[0_0_10px_rgb(140,69,255,0.7)_inset]"}/>
-                        </div>
-                        <span>{"Register Now"}</span>
-                    </button>
+                           
+                            <div className={"absolute inset-0 rounded-lg"}>
+                                <div className={"absolute inset-0 border rounded-lg border-white/20 [mask-image:linear-gradient(to_bottom,black,transparent)]"}/>
+                                <div className={"absolute inset-0 border rounded-lg border-white/40 [mask-image:linear-gradient(to_top,black,transparent)]"}/>
+                                <div className={"absolute inset-0 rounded-lg shadow-[0_0_10px_rgb(140,69,255,0.7)_inset]"}/>
+                            </div>
+                            <span>{"Register Now"}</span>
+                        </button>
+                        </a>
                     </div>
                 </div>
             </motion.section>
