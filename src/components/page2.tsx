@@ -44,7 +44,7 @@ const Page2: React.FC = () => {
 
   return (
     <div
-      className="page h-[95vh] md:h-[120vh] bg-transparent z-50 flex items-center md:justify-center flex-col gap-[9vh] relative transition-all duration-300"
+      className="page h-[145vh] md:h-[175vh] bg-transparent z-50 flex items-center md:justify-center flex-col gap-[9vh] relative transition-all duration-300"
       style={{
         position: "relative",
         top: isMobile ? "0vh" : "0vh",
