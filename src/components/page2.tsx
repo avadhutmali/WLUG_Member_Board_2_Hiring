@@ -12,7 +12,7 @@ const Page2: React.FC = () => {
   // Initialize state safely
   useEffect(() => {
     setIsMounted(true);
-    setIsMobile(window.innerWidth < 768);
+    setIsMobile(window.innerWidth < 700);
   }, []);
 
   // Update isMobile on resize
@@ -44,10 +44,10 @@ const Page2: React.FC = () => {
 
   return (
     <div
-      className="page h-full md:h-[160vh] bg-transparent z-50 flex items-center md:justify-center flex-col gap-[9vh] relative transition-all duration-300"
+      className="page h-[95vh] md:h-[120vh] bg-transparent z-50 flex items-center md:justify-center flex-col gap-[9vh] relative transition-all duration-300"
       style={{
-        position: "absolute",
-        top: isMobile ? "90vh" : "80vh",
+        position: "relative",
+        top: isMobile ? "0vh" : "0vh",
         width: "100%",
         transform: `translateY(${(1 - scrollProgress) * 50}px)`,
         pointerEvents: scrollProgress > 0.1 ? "auto" : "none",

@@ -29,10 +29,10 @@ export function SignupFormDemo() {
 
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-[#211039] p-4 md:rounded-2xl md:p-8 border border-[#2D174D]">
-      <h2 className="text-xl text-center font-bold text-[#8E74B7]">
+      <h2 className="text-xl text-center font-bold text-[#ffffff]">
         Member Registration
       </h2>
-      <p className="mt-2 text-center max-w-sm text-sm text-[#8E74B7]/80">
+      <p className="mt-2 text-center max-w-sm text-sm text-[#ffffff]/80">
         Join our community and help shape the future of open source
       </p>
 

@@ -19,6 +19,13 @@ const Page2 = dynamic(
     loading: () => <p>Loading section...</p>
   }
 );
+const Footer = dynamic(
+  () => import("@/components/Footer"),
+  { 
+    ssr: false,
+    loading: () => <p>Loading section...</p>
+  }
+);
 
 export default function Home() {
   const [isClient, setIsClient] = useState(false);
@@ -34,9 +41,9 @@ export default function Home() {
           <>
             <HeroSection />
             <div id="Register">
-
-            <Page2 />
+              <Page2 />
             </div>
+            <Footer/>
           </>
         )}
       </Suspense>
