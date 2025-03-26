@@ -97,27 +97,28 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Navigation Links */}
-        <div className="space-y-2 text-center lg:text-left">
-          {[
-            { label: "Home", link: "#home" },
-            { label: "Register", link: "#Register", onClick: handleRegisterClick },
-            { label: "About Us", link: "https://www.wcewlug.org/" },
-          ].map(({ label, link, onClick }, index) => (
-            <React.Fragment key={index}>
-              <a
-                href={link}
-                onClick={onClick}
-                target="_blank"
-                rel="noreferrer"
-                className="block hover:underline"
-                style={{ color: themeColors.accent }}
-              >
-                {label}
-              </a>
-              <br />
-            </React.Fragment>
-          ))}
-        </div>
+        <div className="space-y-2 text-center lg:text-left cursor-pointer">
+  {[
+    { label: "Home", link: "#home", onClick: () => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" }) },
+    { label: "Register", link: "#register", onClick: () => document.getElementById("register")?.scrollIntoView({ behavior: "smooth" }) },
+    { label: "About Us", link: "https://www.wcewlug.org/" },
+  ].map(({ label, link, onClick }, index) => (
+    <React.Fragment key={index}>
+      <a
+        href={link.startsWith("#") ? undefined : link} // Prevents full reload for internal links
+        onClick={onClick}
+        target={link.startsWith("#") ? undefined : "_blank"}
+        rel="noreferrer"
+        className="block hover:underline"
+        style={{ color: themeColors.accent }}
+      >
+        {label}
+      </a>
+      <br />
+    </React.Fragment>
+  ))}
+</div>
+
 
         {/* Policy Links */}
         <div className="space-y-0 text-center lg:text-left">

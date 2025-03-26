@@ -4,6 +4,7 @@ import { Label } from "./ui/label";
 import { Input } from "./ui/input";
 import { cn } from "@/lib/utils";
 import { IconUpload } from "@tabler/icons-react";
+import { Textarea } from "./ui/textarea";
 
 type FormErrors = {
   fullName?: string;
@@ -281,15 +282,16 @@ export function SignupFormDemo() {
           <Label htmlFor="whyJoinClub" className="text-[#F5F3F7]">
             Why do you want to join? *
           </Label>
-          <Input
-            id="whyJoinClub"
-            name="whyJoinClub"
-            placeholder="Your motivation..."
-            className="bg-[#422670] border-[#8E74B7]/30 text-[#F5F3F7] placeholder:text-[#8E74B7]/60 h-32"
-            disabled={loading}
-          />
+          <Textarea
+  id="whyJoinClub"
+  name="whyJoinClub"
+  placeholder="Your motivation..."
+  className="bg-[#422670] border-[#8E74B7]/30 text-[#F5F3F7] placeholder:text-[#8E74B7]/60 h-32 p-3 text-left resize-none"
+/>
+
           {errors.whyJoinClub && <span className="text-red-400 text-sm">{errors.whyJoinClub}</span>}
         </LabelInputContainer>
+
 
         {/* Photo Upload */}
         <LabelInputContainer className="mb-4">

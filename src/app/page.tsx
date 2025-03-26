@@ -50,7 +50,7 @@ export default function Home() {
             <div id="home">
               <HeroSection />
             </div>
-            <div id="Register">
+            <div id="register">
               <Page2 />
             </div>
             <Footer/>
