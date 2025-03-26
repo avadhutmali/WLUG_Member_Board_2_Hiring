@@ -52,7 +52,7 @@ export function HeroSection() {
                 </motion.div>
                 {/* Hero Section Content Logic */}
                 <div className={"container relative mt-16"}>
-                    <h1 className={"text-5xl md:text-[100px] md:leading-none font-semibold bg-white tracking-tighter bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,0.5))] bg-clip-text text-transparent text-center"}>Walchand Linux Users&apos; Group</h1>
+                    <h1 className={"text-[5.5vh] md:text-[100px] md:leading-none font-semibold bg-white tracking-tighter bg-[radial-gradient(100%_100%_at_top_left,white,white,rgb(74,32,138,0.7))] bg-clip-text text-transparent text-center"}>Walchand Linux Users&apos; Group</h1>
                     <p className={"text-lg md:text-xl max-w-xl mx-auto text-white/70 mt-10 md:mt-5 text-center"}>Prepare to join a vibrant community of Linux enthusiasts and immerse yourself in the dynamic World of Open Source.</p>
                     <div className={"flex justify-center mt-10 md:mt-5"}>
                     <a href="#Register">
