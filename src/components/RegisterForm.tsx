@@ -161,7 +161,7 @@ export function SignupFormDemo() {
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-[#211039] p-4 md:rounded-2xl md:p-8 border border-[#2D174D]">
       <h2 className="text-xl text-center font-bold text-[#ffffff]">Member Registration</h2>
       <p className="mt-2 text-center max-w-sm text-sm text-[#ffffff]/80">
-        Join our community and help shape the future of open source
+        Join our community and help shape the future of Open Source
       </p>
 
       <form className="my-8" onSubmit={handleSubmit} id="registrationForm">
