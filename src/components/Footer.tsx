@@ -99,8 +99,8 @@ const Footer: React.FC = () => {
         {/* Navigation Links */}
         <div className="space-y-2 text-center lg:text-left">
           {[
-            { label: "Home", link: "https://memberboard2k24.wcewlug.org" },
-            { label: "Register", link: "#Page2", onClick: handleRegisterClick },
+            { label: "Home", link: "#home" },
+            { label: "Register", link: "#Register", onClick: handleRegisterClick },
             { label: "About Us", link: "https://www.wcewlug.org/" },
           ].map(({ label, link, onClick }, index) => (
             <React.Fragment key={index}>

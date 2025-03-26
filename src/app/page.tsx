@@ -47,7 +47,9 @@ export default function Home() {
       <Suspense fallback={<div>Loading...</div>}>
         {isClient && (
           <>
-            <HeroSection />
+            <div id="home">
+              <HeroSection />
+            </div>
             <div id="Register">
               <Page2 />
             </div>

@@ -10,7 +10,6 @@ type FormErrors = {
   branch?: string;
   mobileNo?: string;
   email?: string;
-  favoriteQuote?: string;
   whyJoinClub?: string;
   photo?: string;
   resume?: string;
@@ -60,10 +59,6 @@ export function SignupFormDemo() {
     } else if (!emailRegex.test(email.value)) {
       newErrors.email = "Invalid email format";
     }
-
-    // Favorite Quote
-    const favoriteQuote = form?.elements.namedItem("favoriteQuote") as HTMLInputElement;
-    if (!favoriteQuote.value.trim()) newErrors.favoriteQuote = "Favorite quote is required";
 
     // Why Join Club
     const whyJoinClub = form?.elements.namedItem("whyJoinClub") as HTMLInputElement;
@@ -130,9 +125,9 @@ export function SignupFormDemo() {
 
     setLoading(true);
     setErrors({});
-    
+
     try {
-      const form = e.currentTarget
+      const form = e.currentTarget;
       const formData = new FormData(form);
       if (photoFile) formData.append("photo", photoFile);
       if (resumeFile) formData.append("resume", resumeFile);
@@ -145,7 +140,7 @@ export function SignupFormDemo() {
       if (!response.ok) throw new Error(`HTTP error! status: ${response.status} contact 9579047160`);
 
       // Reset form
-      if (form) form.reset();  
+      if (form) form.reset();
       setPhotoPreview(null);
       setPhotoFile(null);
       setResumeFile(null);
@@ -188,68 +183,65 @@ export function SignupFormDemo() {
 
         {/* Branch */}
         <LabelInputContainer className="mb-4 relative">
-  <Label htmlFor="branch" className="text-[#F5F3F7]">
-    Branch *
-  </Label>
-  <div className="relative">
-    <select
-      id="branch"
-      name="branch"
-      className="appearance-none w-full bg-[#422670] border border-[#8E74B7] text-[#F5F3F7] p-2 rounded-md pr-10 focus:ring-2 focus:ring-[#8E74B7] focus:outline-none"
-      disabled={loading}
-      defaultValue=""
-      title="Branch-Selector"
-    >
-      <option value="" disabled className="text-[#8E74B7]/60">
-        Select a branch
-      </option>
-      <option value="AIML" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        AIML
-      </option>
-      <option value="ROBOTICS" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        ROBOTICS
-      </option>
-      <option value="CSE" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        CSE
-      </option>
-      <option value="IT" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        IT
-      </option>
-      <option value="Electronics" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        Electronics
-      </option>
-      <option value="Electrical" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        Electrical
-      </option>
-      <option value="Mechanical" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        Mechanical
-      </option>
-      <option value="Civil" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
-        Civil
-      </option>
-    </select>
+          <Label htmlFor="branch" className="text-[#F5F3F7]">
+            Branch *
+          </Label>
+          <div className="relative">
+            <select
+              id="branch"
+              name="branch"
+              className="appearance-none w-full bg-[#422670] border border-[#8E74B7] text-[#F5F3F7] p-2 rounded-md pr-10 focus:ring-2 focus:ring-[#8E74B7] focus:outline-none"
+              disabled={loading}
+              defaultValue=""
+              title="Branch-Selector"
+            >
+              <option value="" disabled className="text-[#8E74B7]/60">
+                Select a branch
+              </option>
+              <option value="AIML" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                AIML
+              </option>
+              <option value="ROBOTICS" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                ROBOTICS
+              </option>
+              <option value="CSE" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                CSE
+              </option>
+              <option value="IT" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                IT
+              </option>
+              <option value="Electronics" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                Electronics
+              </option>
+              <option value="Electrical" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                Electrical
+              </option>
+              <option value="Mechanical" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                Mechanical
+              </option>
+              <option value="Civil" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+                Civil
+              </option>
+            </select>
 
-    {/* Custom dropdown arrow */}
-    <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
-      <svg
-        className="w-4 h-4 text-[#F5F3F7]"
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-      >
-        <path
-          fillRule="evenodd"
-          d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-          clipRule="evenodd"
-        />
-      </svg>
-    </div>
-  </div>
-  {errors.branch && <span className="text-red-400 text-sm">{errors.branch}</span>}
-</LabelInputContainer>
-
-
-
+            {/* Custom dropdown arrow */}
+            <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+              <svg
+                className="w-4 h-4 text-[#F5F3F7]"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+          {errors.branch && <span className="text-red-400 text-sm">{errors.branch}</span>}
+        </LabelInputContainer>
 
         {/* Mobile Number */}
         <LabelInputContainer className="mb-4">
@@ -282,22 +274,6 @@ export function SignupFormDemo() {
             disabled={loading}
           />
           {errors.email && <span className="text-red-400 text-sm">{errors.email}</span>}
-        </LabelInputContainer>
-
-        {/* Favorite Quote */}
-        <LabelInputContainer className="mb-4">
-          <Label htmlFor="favoriteQuote" className="text-[#F5F3F7]">
-            Favorite Quote *
-          </Label>
-          <Input
-            id="favoriteQuote"
-            name="favoriteQuote"
-            placeholder="Your favorite quote..."
-            type="text"
-            className="bg-[#422670] border-[#8E74B7]/30 text-[#F5F3F7] placeholder:text-[#8E74B7]/60"
-            disabled={loading}
-          />
-          {errors.favoriteQuote && <span className="text-red-400 text-sm">{errors.favoriteQuote}</span>}
         </LabelInputContainer>
 
         {/* Why Join Club */}
