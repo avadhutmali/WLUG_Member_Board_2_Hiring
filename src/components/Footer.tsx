@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
             ))}
           </div>
           <p className="text-[14px]" style={{ color: themeColors.text }}>
-            © 2024 WCEWLUG, ALL RIGHTS RESERVED
+            © 2025 WCEWLUG, ALL RIGHTS RESERVED
           </p>
         </div>
 
