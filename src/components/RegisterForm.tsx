@@ -62,7 +62,9 @@ export function SignupFormDemo() {
     }
 
     // Why Join Club
-    const whyJoinClub = form?.elements.namedItem("whyJoinClub") as HTMLInputElement;
+    const whyJoinClub = form?.elements.namedItem(
+      "whyJoinClub"
+    ) as HTMLTextAreaElement;
     if (!whyJoinClub.value.trim()) {
       newErrors.whyJoinClub = "This field is required";
     } else if (whyJoinClub.value.length > 500) {
@@ -71,13 +73,17 @@ export function SignupFormDemo() {
 
     // Photo Validation
     if (!photoFile) newErrors.photo = "Profile photo is required";
-    else if (!photoFile.type.startsWith("image/")) newErrors.photo = "Only image files allowed";
-    else if (photoFile.size > 2 * 1024 * 1024) newErrors.photo = "Photo must be <2MB";
+    else if (!photoFile.type.startsWith("image/"))
+      newErrors.photo = "Only image files allowed";
+    else if (photoFile.size > 2 * 1024 * 1024)
+      newErrors.photo = "Photo must be <2MB";
 
     // Resume Validation
     if (!resumeFile) newErrors.resume = "Resume is required";
-    else if (resumeFile.type !== "application/pdf") newErrors.resume = "Only PDF allowed";
-    else if (resumeFile.size > 5 * 1024 * 1024) newErrors.resume = "Resume must be <5MB";
+    else if (resumeFile.type !== "application/pdf")
+      newErrors.resume = "Only PDF allowed";
+    else if (resumeFile.size > 5 * 1024 * 1024)
+      newErrors.resume = "Resume must be <5MB";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -88,18 +94,18 @@ export function SignupFormDemo() {
     if (!file) return;
 
     if (!file.type.startsWith("image/")) {
-      setErrors(prev => ({ ...prev, photo: "Invalid file type" }));
+      setErrors((prev) => ({ ...prev, photo: "Invalid file type" }));
       return;
     }
 
     if (file.size > 2 * 1024 * 1024) {
-      setErrors(prev => ({ ...prev, photo: "File too large (max 2MB)" }));
+      setErrors((prev) => ({ ...prev, photo: "File too large (max 2MB)" }));
       return;
     }
 
     setPhotoFile(file);
     setPhotoPreview(URL.createObjectURL(file));
-    setErrors(prev => ({ ...prev, photo: undefined }));
+    setErrors((prev) => ({ ...prev, photo: undefined }));
   };
 
   const handleResumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -107,17 +113,17 @@ export function SignupFormDemo() {
     if (!file) return;
 
     if (file.type !== "application/pdf") {
-      setErrors(prev => ({ ...prev, resume: "Only PDF allowed" }));
+      setErrors((prev) => ({ ...prev, resume: "Only PDF allowed" }));
       return;
     }
 
     if (file.size > 5 * 1024 * 1024) {
-      setErrors(prev => ({ ...prev, resume: "File too large (max 5MB)" }));
+      setErrors((prev) => ({ ...prev, resume: "File too large (max 5MB)" }));
       return;
     }
 
     setResumeFile(file);
-    setErrors(prev => ({ ...prev, resume: undefined }));
+    setErrors((prev) => ({ ...prev, resume: undefined }));
   };
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -133,12 +139,18 @@ export function SignupFormDemo() {
       if (photoFile) formData.append("photo", photoFile);
       if (resumeFile) formData.append("resume", resumeFile);
 
-      const response = await fetch("https://wlug-mb-2-backend.onrender.com/api/user/apply", {
-        method: "POST",
-        body: formData,
-      });
+      const response = await fetch(
+        "https://wlug-mb-2-backend.onrender.com/api/user/apply",
+        {
+          method: "POST",
+          body: formData,
+        }
+      );
 
-      if (!response.ok) throw new Error(`HTTP error! status: ${response.status} contact 9579047160`);
+      if (!response.ok)
+        throw new Error(
+          `HTTP error! status: ${response.status} contact 9579047160`
+        );
 
       // Reset form
       if (form) form.reset();
@@ -147,9 +159,8 @@ export function SignupFormDemo() {
       setResumeFile(null);
       setSuccess(true);
       setTimeout(() => setSuccess(false), 5000);
-
     } catch (err) {
-      setErrors(prev => ({
+      setErrors((prev) => ({
         ...prev,
         form: err instanceof Error ? err.message : "Submission failed",
       }));
@@ -160,7 +171,9 @@ export function SignupFormDemo() {
 
   return (
     <div className="shadow-input mx-auto w-full max-w-md rounded-none bg-[#211039] p-4 md:rounded-2xl md:p-8 border border-[#2D174D]">
-      <h2 className="text-xl text-center font-bold text-[#ffffff]">Member Registration</h2>
+      <h2 className="text-xl text-center font-bold text-[#ffffff]">
+        Member Registration
+      </h2>
       <p className="mt-2 text-center max-w-sm text-sm text-[#ffffff]/80">
         Join our community and help shape the future of Open Source
       </p>
@@ -179,7 +192,9 @@ export function SignupFormDemo() {
             className="bg-[#422670] border-[#8E74B7]/30 text-[#F5F3F7] placeholder:text-[#8E74B7]/60"
             disabled={loading}
           />
-          {errors.fullName && <span className="text-red-400 text-sm">{errors.fullName}</span>}
+          {errors.fullName && (
+            <span className="text-red-400 text-sm">{errors.fullName}</span>
+          )}
         </LabelInputContainer>
 
         {/* Branch */}
@@ -199,28 +214,52 @@ export function SignupFormDemo() {
               <option value="" disabled className="text-[#8E74B7]/60">
                 Select a branch
               </option>
-              <option value="AIML" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="AIML"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 AIML
               </option>
-              <option value="ROBOTICS" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="ROBOTICS"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 ROBOTICS
               </option>
-              <option value="CSE" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="CSE"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 CSE
               </option>
-              <option value="IT" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="IT"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 IT
               </option>
-              <option value="Electronics" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="Electronics"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 Electronics
               </option>
-              <option value="Electrical" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="Electrical"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 Electrical
               </option>
-              <option value="Mechanical" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="Mechanical"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 Mechanical
               </option>
-              <option value="Civil" className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]">
+              <option
+                value="Civil"
+                className="bg-[#522E7D] text-[#F5F3F7] hover:bg-[#8E74B7]"
+              >
                 Civil
               </option>
             </select>
@@ -241,7 +280,9 @@ export function SignupFormDemo() {
               </svg>
             </div>
           </div>
-          {errors.branch && <span className="text-red-400 text-sm">{errors.branch}</span>}
+          {errors.branch && (
+            <span className="text-red-400 text-sm">{errors.branch}</span>
+          )}
         </LabelInputContainer>
 
         {/* Mobile Number */}
@@ -258,7 +299,9 @@ export function SignupFormDemo() {
             className="bg-[#422670] border-[#8E74B7]/30 text-[#F5F3F7] placeholder:text-[#8E74B7]/60"
             disabled={loading}
           />
-          {errors.mobileNo && <span className="text-red-400 text-sm">{errors.mobileNo}</span>}
+          {errors.mobileNo && (
+            <span className="text-red-400 text-sm">{errors.mobileNo}</span>
+          )}
         </LabelInputContainer>
 
         {/* Email */}
@@ -274,7 +317,9 @@ export function SignupFormDemo() {
             className="bg-[#422670] border-[#8E74B7]/30 text-[#F5F3F7] placeholder:text-[#8E74B7]/60"
             disabled={loading}
           />
-          {errors.email && <span className="text-red-400 text-sm">{errors.email}</span>}
+          {errors.email && (
+            <span className="text-red-400 text-sm">{errors.email}</span>
+          )}
         </LabelInputContainer>
 
         {/* Why Join Club */}
@@ -292,7 +337,6 @@ export function SignupFormDemo() {
           {errors.whyJoinClub && <span className="text-red-400 text-sm">{errors.whyJoinClub}</span>}
         </LabelInputContainer>
 
-
         {/* Photo Upload */}
         <LabelInputContainer className="mb-4">
           <Label htmlFor="photo" className="text-[#F5F3F7]">
@@ -309,7 +353,9 @@ export function SignupFormDemo() {
             />
             <label
               htmlFor="photo"
-              className={`flex items-center justify-center w-full p-2 bg-[#422670] border border-[#8E74B7]/30 rounded-md cursor-pointer hover:bg-[#422670]/80 transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`flex items-center justify-center w-full p-2 bg-[#422670] border border-[#8E74B7]/30 rounded-md cursor-pointer hover:bg-[#422670]/80 transition-colors ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               <IconUpload className="w-4 h-4 mr-2 text-[#8E74B7]" />
               <span className="text-[#F5F3F7]">
@@ -323,7 +369,11 @@ export function SignupFormDemo() {
                 className="mt-2 w-20 h-20 rounded-full object-cover border border-[#8E74B7]/30"
               />
             )}
-            {errors.photo && <span className="text-red-400 text-sm block mt-1">{errors.photo}</span>}
+            {errors.photo && (
+              <span className="text-red-400 text-sm block mt-1">
+                {errors.photo}
+              </span>
+            )}
           </div>
         </LabelInputContainer>
 
@@ -343,14 +393,20 @@ export function SignupFormDemo() {
             />
             <label
               htmlFor="resume"
-              className={`flex items-center justify-center w-full p-2 bg-[#422670] border border-[#8E74B7]/30 rounded-md cursor-pointer hover:bg-[#422670]/80 transition-colors ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
+              className={`flex items-center justify-center w-full p-2 bg-[#422670] border border-[#8E74B7]/30 rounded-md cursor-pointer hover:bg-[#422670]/80 transition-colors ${
+                loading ? "opacity-50 cursor-not-allowed" : ""
+              }`}
             >
               <IconUpload className="w-4 h-4 mr-2 text-[#8E74B7]" />
               <span className="text-[#F5F3F7]">
                 {resumeFile ? resumeFile.name : "Select PDF File"}
               </span>
             </label>
-            {errors.resume && <span className="text-red-400 text-sm block mt-1">{errors.resume}</span>}
+            {errors.resume && (
+              <span className="text-red-400 text-sm block mt-1">
+                {errors.resume}
+              </span>
+            )}
           </div>
         </LabelInputContainer>
 
