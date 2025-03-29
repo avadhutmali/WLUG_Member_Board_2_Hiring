@@ -32,6 +32,33 @@
   }
 }
 
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes neon-glow {
+  to {
+    --angle: 360deg;
+  }
+}
+
+.animate-neon {
+  --angle: 0deg;
+  animation: neon-glow 3s linear infinite;
+  background: conic-gradient(
+    from var(--angle) at 50% 50%,
+    #8E74B7 0deg,
+    #422670 180deg,
+    #8E74B7 360deg
+  );
+  position: absolute;
+  inset: -2px;
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(8px);
+}
 @layer base {
   * {
     /* Update from `border-border` to `border-customBorder` */

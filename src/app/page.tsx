@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, Suspense } from "react";
 import dynamic from "next/dynamic";
+import { RegistrationClosed } from "@/components/RegistrationClosed";
 
 // Dynamically import components with SSR disabled
 
@@ -51,7 +52,8 @@ export default function Home() {
               <HeroSection />
             </div>
             <div id="register">
-              <Page2 />
+              {/* <Page2 /> */}
+              <RegistrationClosed/>
             </div>
             <Footer/>
           </>
