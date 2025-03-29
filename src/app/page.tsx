@@ -52,8 +52,8 @@ export default function Home() {
               <HeroSection />
             </div>
             <div id="register">
-              {/* <Page2 /> */}
-              <RegistrationClosed/>
+              <Page2 />
+              {/* <RegistrationClosed/> */}
             </div>
             <Footer/>
           </>
