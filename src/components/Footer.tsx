@@ -1,4 +1,4 @@
-import * as React from 'react';
+import * as React from "react";
 import {
   FaGithub,
   FaInstagram,
@@ -13,7 +13,7 @@ const Footer: React.FC = () => {
     secondary: "#2D174D",
     accent: "#8E74B7",
     text: "#F5F3F7",
-    border: "#8E74B7"
+    border: "#8E74B7",
   };
 
   const handleRegisterClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -25,12 +25,12 @@ const Footer: React.FC = () => {
   };
 
   return (
-    <footer 
-      id="about" 
-      className="footer w-full justify-center bottom-0 relative z-101 flex items-center"
+    <footer
+      id="about"
+      className="footer top-6 w-full justify-center bottom-0 relative z-101 flex items-center"
       style={{ backgroundColor: themeColors.background }}
     >
-      <div 
+      <div
         className="flex w-full flex-col space-y-5 md:space-y-0 md:flex-row border-[8px] mt-2 rounded-lg lg:justify-evenly justify-center p-6 items-center lg:px-12"
         style={{
           backgroundColor: themeColors.secondary,
@@ -50,7 +50,7 @@ const Footer: React.FC = () => {
 
         {/* Social Links */}
         <div className="space-y-2">
-          <h1 
+          <h1
             className="text-3xl font-extrabold mb-2 text-center md:text-left"
             style={{ color: themeColors.text }}
           >
@@ -58,25 +58,25 @@ const Footer: React.FC = () => {
           </h1>
           <div className="flex space-x-2 justify-center md:justify-start">
             {[
-              { 
-                icon: FaInstagram, 
-                link: "https://instagram.com/wcewlug?igshid=YmMyMTA2M2Y=" 
+              {
+                icon: FaInstagram,
+                link: "https://instagram.com/wcewlug?igshid=YmMyMTA2M2Y=",
               },
-              { 
-                icon: FaLinkedin, 
-                link: "https://www.linkedin.com/company/wlug-club/" 
+              {
+                icon: FaLinkedin,
+                link: "https://www.linkedin.com/company/wlug-club/",
               },
-              { 
-                icon: FaGithub, 
-                link: "https://github.com/Walchand-Linux-Users-Group" 
+              {
+                icon: FaGithub,
+                link: "https://github.com/Walchand-Linux-Users-Group",
               },
-              { 
-                icon: FaXTwitter, 
-                link: "https://mobile.twitter.com/wcewlug" 
+              {
+                icon: FaXTwitter,
+                link: "https://mobile.twitter.com/wcewlug",
               },
-              { 
-                icon: FaDiscord, 
-                link: "https://discord.com/invite/3ce8hBZfc8" 
+              {
+                icon: FaDiscord,
+                link: "https://discord.com/invite/3ce8hBZfc8",
               },
             ].map(({ icon: Icon, link }, index) => (
               <a
@@ -118,6 +118,7 @@ const Footer: React.FC = () => {
     </React.Fragment>
   ))}
 </div>
+
 
 
         {/* Policy Links */}
